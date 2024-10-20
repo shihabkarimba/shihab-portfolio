@@ -31,27 +31,70 @@
 
   <title>shihab_portfolio</title>
   <link rel="manifest" href="manifest.json">
+
+  <style>
+    body {background-color: #212121;}
+
+       .loading {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         margin: 0;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         -ms-transform: translate(-50%, -50%);
+         transform: translate(-50%, -50%);
+       }
+
+       .loader {
+         border: 10px solid #f3f3f3;
+         border-radius: 50%;
+         border: 10px solid;
+         border-top: 10px solid #FFFFFF;
+         border-right: 10px solid #212121;
+         border-bottom: 10px solid #FFFFFF;
+         border-left: 10px solid #212121;
+         width: 50px;
+         height: 50px;
+         -webkit-animation: spin 2s linear infinite;
+         animation: spin 2s linear infinite;
+       }
+
+       @-webkit-keyframes spin {
+         0% {
+           -webkit-transform: rotate(0deg);
+         }
+         100% {
+           -webkit-transform: rotate(360deg);
+         }
+       }
+
+       @keyframes spin {
+         0% {
+           transform: rotate(0deg);
+         }
+         100% {
+           transform: rotate(360deg);
+         }
+       }
+  </style>
 </head>
 <body>
-<style>
-  body {
-    background-color: #0a0a0a;
-    height: 100vh;
-    width: 100vw;
-     margin: 0px;
+<div class="loading">
+  <div class="loader"></div>
+</div>
+<script src="main.dart.js" type="application/javascript"></script>
+<!-- This script installs service_worker.js to provide PWA functionality to
+     application. For more information, see:
+     https://developers.google.com/web/fundamentals/primers/service-workers -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('flutter-first-frame', function () {
+      navigator.serviceWorker.register('flutter_service_worker.js');
+    });
   }
-
-  .main-content {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-</style>
-  <script src="flutter_bootstrap.js" async></script>
-  <div class="main-content" id="loader-content">
-    <img src="main-icon.png" alt="My App Logo" />
-  </div>
+</script>
+<script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>

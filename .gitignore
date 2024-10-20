@@ -31,11 +31,11 @@ errors.txt
 .packages
 .pub-cache/
 .pub/
-untranslated.txt
 pubspec.lock
 *.freezed.dart
 *.g.dart
-
+build/
+.firebase/
 # Symbolication related
 app.*.symbols
 
